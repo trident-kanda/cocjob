@@ -5,7 +5,9 @@ module.exports = {
     extend: {},
   },
   variants: {
-    textDecoration: ["hover"],
+    extend: {
+      textDecoration: ["hover"],
+    },
   },
   plugins: [],
 };
