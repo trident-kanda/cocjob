@@ -1,4 +1,4 @@
-import Head from "next/Head";
+import Head from "next/head";
 import { useCallback, useState } from "react";
 import Container from "../component/Container";
 import Header from "../component/Header";
