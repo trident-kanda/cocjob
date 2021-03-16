@@ -8,7 +8,7 @@ export default function Home() {
   const [skill, setSkill] = useState([]);
   const [job, setjob] = useState(["未設定"]);
   return (
-    <div>
+    <div className="bg-gray-100 ">
       <Head>
         <title>COCjob</title>
       </Head>
