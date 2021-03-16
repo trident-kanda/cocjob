@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import Container from "../component/Container";
 import Header from "../component/Header";
 import JobList from "../component/JobList";
