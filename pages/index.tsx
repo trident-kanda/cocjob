@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>COCjob</title>
+        <title>CoCJob</title>
       </Head>
       <Header />
       <Container>
