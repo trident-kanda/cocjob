@@ -1,4 +1,8 @@
-const Skill = ({ skill, job }: any) => {
+type props = {
+  skill: string[];
+  job: string;
+};
+const Skill = ({ skill, job }: props) => {
   return (
     <div className="p-5 bg-white rounded-lg mb-5">
       <div>

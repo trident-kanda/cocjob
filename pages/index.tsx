@@ -1,12 +1,26 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Container from "../component/Container";
 import Header from "../component/Header";
 import JobList from "../component/JobList";
 import Skill from "../component/Skill";
 export default function Home() {
-  const [skill, setSkill] = useState([]);
-  const [job, setjob] = useState(["未設定"]);
+  const [skill, setSkill] = useState<string[]>([]);
+  const [job, setJob] = useState("未設定");
+  const skillSet = useCallback(
+    (inputSkill: string[]): void => {
+      setSkill(inputSkill);
+    },
+    [setSkill]
+  );
+
+  const jobSet = useCallback(
+    (inputJob: string): void => {
+      setJob(inputJob);
+    },
+    [setJob]
+  );
+
   return (
     <div>
       <Head>
@@ -14,7 +28,7 @@ export default function Home() {
       </Head>
       <Header />
       <Container>
-        <JobList setSkill={setSkill} setjob={setjob} />
+        <JobList skillSet={skillSet} jobSet={jobSet} />
         <Skill skill={skill} job={job} />
       </Container>
     </div>

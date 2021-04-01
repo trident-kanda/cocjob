@@ -1,10 +1,14 @@
 import { getSkill } from "../graphql/query";
 import { jobs } from "../option/jobs";
-const JobList = ({ setSkill, setjob }: any) => {
+type props = {
+  skillSet: (inputSkill: string[]) => void;
+  jobSet: (inputJob: string) => void;
+};
+const JobList = ({ skillSet, jobSet }: props) => {
   const clickJob = async (id: number) => {
     const skill = await getSkill(id);
-    setjob(jobs[id - 1]);
-    setSkill(skill);
+    jobSet(jobs[id - 1]);
+    skillSet(skill);
   };
   return (
     <div className="p-5 bg-white rounded-lg mb-5">
