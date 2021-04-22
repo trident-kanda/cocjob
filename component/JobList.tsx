@@ -3,10 +3,13 @@ import { jobs } from "../option/jobs";
 type props = {
   skillSet: (inputSkill: string[]) => void;
   jobSet: (inputJob: string) => void;
+  loadSet: (inputState: boolean) => void;
 };
-const JobList = ({ skillSet, jobSet }: props) => {
+const JobList = ({ skillSet, jobSet, loadSet }: props) => {
   const clickJob = async (id: number) => {
+    loadSet(true);
     const skill = await getSkill(id);
+    loadSet(false);
     jobSet(jobs[id - 1]);
     skillSet(skill);
   };

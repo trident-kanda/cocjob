@@ -1,13 +1,20 @@
+import ReactLoading from "react-loading";
 type props = {
   skill: string[];
   job: string;
+  load: boolean;
 };
-const Skill = ({ skill, job }: props) => {
+const Skill = ({ skill, job, load }: props) => {
   return (
     <div className="p-5 bg-white rounded-lg mb-5">
       <div>
         <h2 className="text-4xl inline-block">Skill.</h2>
-        <a className="ml-4 text-2xl">{job}</a>
+        <a className="ml-4 text-2xl inline-block">{job}</a>
+        {load && (
+          <div className="inline-block">
+            <ReactLoading type={"spin"} color="gray" height={20} width={20} />
+          </div>
+        )}
       </div>
       <div className="border-b-2 border-black"></div>
       <a className="text-gray-400">*付きは好きな技能を2つ選択</a>

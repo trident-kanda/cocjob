@@ -7,11 +7,19 @@ import Skill from "../component/Skill";
 export default function Home() {
   const [skill, setSkill] = useState<string[]>([]);
   const [job, setJob] = useState("未設定");
+  const [load, setload] = useState(false);
   const skillSet = useCallback(
     (inputSkill: string[]): void => {
       setSkill(inputSkill);
     },
     [setSkill]
+  );
+
+  const loadSet = useCallback(
+    (inputState: boolean) => {
+      setload(inputState);
+    },
+    [setload]
   );
 
   const jobSet = useCallback(
@@ -28,8 +36,8 @@ export default function Home() {
       </Head>
       <Header />
       <Container>
-        <JobList skillSet={skillSet} jobSet={jobSet} />
-        <Skill skill={skill} job={job} />
+        <JobList skillSet={skillSet} jobSet={jobSet} loadSet={loadSet} />
+        <Skill skill={skill} job={job} load={load} />
       </Container>
     </div>
   );
